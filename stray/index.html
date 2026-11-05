@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRAY KIDS — Fan Site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#07070a;
+    --panel:#0e0e14;
+    --line:#1d1d26;
+    --red:#ff2b3d;
+    --red-soft:#ff6b4a;
+    --txt:#f3f3f7;
+    --mut:#8b8b9c;
+    --r:18px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--txt);
+    font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background:
+      radial-gradient(900px 500px at 15% -10%, rgba(255,43,61,.18), transparent 65%),
+      radial-gradient(700px 500px at 90% 10%, rgba(90,60,255,.14), transparent 65%),
+      radial-gradient(800px 600px at 50% 110%, rgba(255,107,74,.10), transparent 65%);
+    pointer-events:none;
+    z-index:0;
+  }
+  img{max-width:100%}
+  a{color:inherit}
+
+  /* ============ NAV ============ */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:20px;
+    padding:14px clamp(16px,4vw,56px);
+    backdrop-filter:blur(14px);
+    background:rgba(7,7,10,.72);
+    border-bottom:1px solid var(--line);
+  }
+  .nav__logo{
+    font-family:'Anton',Impact,sans-serif;
+    font-size:1.05rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    display:flex;align-items:center;gap:10px;
+  }
+  .nav__logo span{color:var(--red)}
+  .nav__logo::before{
+    content:"";
+    width:9px;height:9px;border-radius:50%;
+    background:var(--red);
+    box-shadow:0 0 14px var(--red);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:1;transform:scale(1)}
+    50%{opacity:.35;transform:scale(.75)}
+  }
+  .nav__links{display:flex;gap:6px;flex-wrap:wrap}
+  .nav__links a{
+    text-decoration:none;
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--mut);
+    padding:8px 14px;
+    border-radius:999px;
+    transition:.25s;
+  }
+  .nav__links a:hover{color:var(--txt);background:rgba(255,43,61,.14)}
+  @media(max-width:640px){
+    .nav__links{display:none}
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    padding:80px 20px 60px;
+    overflow:hidden;
+    z-index:1;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size:70px 70px;
+    mask-image:radial-gradient(circle at 50% 45%, #000 10%, transparent 72%);
+    -webkit-mask-image:radial-gradient(circle at 50% 45%, #000 10%, transparent 72%);
+    pointer-events:none;
+  }
+  .orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:.55;
+    animation:float 14s ease-in-out infinite;
+    pointer-events:none;
+  }
+  .orb--1{width:320px;height:320px;background:#ff2b3d;top:8%;left:6%}
+  .orb--2{width:260px;height:260px;background:#5a3cff;bottom:12%;right:8%;animation-delay:-5s}
+  .orb--3{width:200px;height:200px;background:#ff6b4a;top:55%;left:12%;animation-delay:-9s}
+  @keyframes float{
+    0%,100%{transform:translate(0,0) scale(1)}
+    33%{transform:translate(30px,-40px) scale(1.12)}
+    66%{transform:translate(-25px,25px) scale(.92)}
+  }
+
+  .hero__inner{position:relative;z-index:2;max-width:1000px}
+  .hero__badge{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--red);
+    border:1px solid rgba(255,43,61,.4);
+    background:rgba(255,43,61,.08);
+    padding:8px 18px;border-radius:999px;
+    margin-bottom:28px;
+  }
+  .hero h1{
+    font-family:'Anton',Impact,sans-serif;
+    font-weight:400;
+    font-size:clamp(3.4rem,15vw,11rem);
+    line-height:.84;
+    letter-spacing:-.03em;
+    text-transform:uppercase;
+  }
+  .hero h1 .l1{
+    display:block;
+    background:linear-gradient(180deg,#fff 20%,#b9b9c9 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .hero h1 .l2{
+    display:block;
+    background:linear-gradient(100deg,var(--red) 0%,var(--red-soft) 55%,#ffd23d 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+    filter:drop-shadow(0 0 40px rgba(255,43,61,.45));
+  }
+  .hero p.sub{
+    margin:30px auto 0;
+    max-width:600px;
+    color:var(--mut);
+    font-size:clamp(.95rem,2vw,1.1rem);
+  }
+  .hero__cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:38px}
+  .btn{
+    display:inline-block;
+    text-decoration:none;
+    font-weight:800;font-size:.8rem;
+    letter-spacing:.14em;text-transform:uppercase;
+    padding:16px 32px;border-radius:999px;
+    border:1px solid transparent;
+    transition:.3s;
+    cursor:pointer;
+    font-family:inherit;
+  }
+  .btn--primary{
+    background:var(--red);
+    color:#fff;
+    box-shadow:0 0 0 0 rgba(255,43,61,.6);
+  }
+  .btn--primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 14px 40px -8px rgba(255,43,61,.8);
+  }
+  .btn--ghost{
+    border-color:var(--line);
+    color:var(--txt);
+    background:rgba(255,255,255,.02);
+  }
+  .btn--ghost:hover{border-color:var(--red);color:var(--red);transform:translateY(-3px)}
+
+  /* ============ MARQUEE ============ */
+  .marquee{
+    overflow:hidden;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:rgba(255,43,61,.05);
+    padding:14px 0;
+    position:relative;z-index:1;
+  }
+  .marquee__track{
+    display:flex;gap:44px;width:max-content;
+    animation:scroll 34s linear infinite;
+    font-family:'Anton',Impact,sans-serif;
+    font-size:1rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--mut);
+    white-space:nowrap;
+  }
+  .marquee__track span:nth-child(odd){color:var(--red)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ============ SECTIONS ============ */
+  section{position:relative;z-index:1}
+  .wrap{max-width:1180px;margin:0 auto;padding:clamp(60px,9vw,110px) clamp(16px,4vw,40px)}
+  .sec-head{margin-bottom:52px;max-width:720px}
+  .sec-head .eyebrow{
+    font-size:.72rem;font-weight:800;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--red);
+    display:block;margin-bottom:14px;
+  }
+  .sec-head h2{
+    font-family:'Anton',Impact,sans-serif;
+    font-weight:400;
+    font-size:clamp(2rem,5.5vw,3.6rem);
+    line-height:1;
+    text-transform:uppercase;
+    letter-spacing:-.02em;
+  }
+  .sec-head p{color:var(--mut);margin-top:18px;font-size:1rem}
+
+  /* ============ ABOUT / STATS ============ */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:16px;
+    margin-top:48px;
+  }
+  .stat{
+    border:1px solid var(--line);
+    background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.01));
+    border-radius:var(--r);
+    padding:26px 22px;
+    transition:.35s;
+  }
+  .stat:hover{border-color:rgba(255,43,61,.55);transform:translateY(-5px)}
+  .stat b{
+    display:block;
+    font-family:'Anton',Impact,sans-serif;
+    font-size:2.2rem;line-height:1;
+    color:var(--red);
+    margin-bottom:8px;
+    font-weight:400;
+  }
+  .stat span{
+    font-size:.74rem;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--mut);
+  }
+
+  /* ============ MEMBERS ============ */
+  .members{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+    gap:18px;
+  }
+  .member{
+    position:relative;
+    border:1px solid var(--line);
+    border-radius:var(--r);
+    background:var(--panel);
+    padding:26px 22px;
+    overflow:hidden;
+    transition:.35s cubic-bezier(.2,.7,.3,1);
+    cursor:default;
+  }
+  .member::before{
+    content:"";
+    position:absolute;inset:0;
+    background:radial-gradient(320px 180px at 50% -20%, var(--c), transparent 70%);
+    opacity:0;
+    transition:.4s;
+  }
+  .member::after{
+    content:"";
+    position:absolute;left:0;top:0;bottom:0;width:3px;
+    background:var(--c);
+    transform:scaleY(0);transform-origin:top;
+    transition:.4s;
+  }
+  .member:hover{transform:translateY(-8px);border-color:var(--c)}
+  .member:hover::before{opacity:.22}
+  .member:hover::after{transform:scaleY(1)}
+  .member__ava{
+    width:64px;height:64px;border-radius:50%;
+    display:grid;place-items:center;
+    font-family:'Anton',Impact,sans-serif;
+    font-size:1.5rem;
+    color:#0a0a0e;
+    background:var(--c);
+    box-shadow:0 0 28px -6px var(--c);
+    margin-bottom:20px;
+    position:relative;z-index:1;
+  }
+  .member h3{
+    font-size:1.16rem;font-weight:900;letter-spacing:-.01em;
+    position:relative;z-index:1;
+  }
+  .member__kr{
+    font-size:.8rem;color:var(--mut);letter-spacing:.1em;
+    position:relative;z-index:1;
+  }
+  .member__role{
+    margin-top:14px;font-size:.82rem;color:var(--txt);
+    position:relative;z-index:1;
+  }
+  .member__meta{
+    margin-top:16px;padding-top:14px;
+    border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:.72rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--mut);
+    position:relative;z-index:1;
+  }
+  .member__meta em{color:var(--c);font-style:normal}
+
+  /* ============ DISCOGRAPHY ============ */
+  .disc{
+    display:flex;gap:16px;overflow-x:auto;
+    padding:6px 4px 22px;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:thin;
+    scrollbar-color:var(--red) transparent;
+  }
+  .disc::-webkit-scrollbar{height:6px}
+  .disc::-webkit-scrollbar-thumb{background:var(--red);border-radius:99px}
+  .disc::-webkit-scrollbar-track{background:var(--line);border-radius:99px}
+  .album{
+    flex:0 0 246px;
+    scroll-snap-align:start;
+    border:1px solid var(--line);
+    border-radius:var(--r);
+    background:var(--panel);
+    padding:24px 22px 26px;
+    transition:.35s;
+    position:relative;
+    overflow:hidden;
+  }
+  .album:hover{transform:translateY(-6px);border-color:rgba(255,43,61,.6)}
+  .album__year{
+    font-family:'Anton',Impact,sans-serif;
+    font-size:.95rem;letter-spacing:.18em;color:var(--red);
+    margin-bottom:14px;
+  }
+  .album h3{
+    font-size:1.06rem;font-weight:900;line-height:1.25;
+    margin-bottom:10px;
+  }
+  .album p{font-size:.83rem;color:var(--mut)}
+  .album__track{
+    margin-top:16px;font-size:.76rem;font-weight:700;
+    letter-spacing:.06em;color:var(--txt);
+    display:inline-block;
+    padding:6px 12px;border-radius:999px;
+    border:1px solid var(--line);
+    background:rgba(255,43,61,.08);
+  }
+
+  /* ============ FAN ZONE ============ */
+  .fanzone{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+  @media(max-width:820px){.fanzone{grid-template-columns:1fr}}
+  .card{
+    border:1px solid var(--line);
+    border-radius:var(--r);
+    background:linear-gradient(165deg,rgba(255,255,255,.05),rgba(255,255,255,.012));
+    padding:32px 28px;
+    display:flex;flex-direction:column;
+  }
+  .card h3{
+    font-family:'Anton',Impact,sans-serif;
+    font-weight:400;
+    font-size:1.5rem;text-transform:uppercase;
+    letter-spacing:.02em;margin-bottom:8px;
+  }
+  .card > p{color:var(--mut);font-size:.9rem;margin-bottom:24px}
+  .card__out{
+    flex:1;
+    min-height:130px;
+    display:flex;align-items:center;
+    border-top:1px dashed var(--line);
+    border-bottom:1px dashed var(--line);
+    padding:22px 0;
+    margin-bottom:24px;
+    font-size:1rem;
+    color:var(--txt);
+  }
+  .card__out .placeholder{color:#4a4a58;font-style:italic}
+  .card .btn{align-self:flex-start}
+
+  .bias{display:flex;align-items:center;gap:18px;width:100%}
+  .bias__ava{
+    flex:0 0 62px;height:62px;border-radius:50%;
+    display:grid;place-items:center;
+    font-family:'Anton',Impact,sans-serif;font-size:1.4rem;color:#0a0a0e;
+    background:var(--c);box-shadow:0 0 30px -8px var(--c);
+  }
+  .bias__txt strong{display:block;font-size:1.1rem;font-weight:900}
+  .bias__txt span{font-size:.82rem;color:var(--mut)}
+  .bias__txt em{
+    display:block;margin-top:6px;font-style:normal;
+    font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--c);
+    font-weight:700;
+  }
+  .pop{animation:pop .5s cubic-bezier(.2,.9,.3,1.4)}
+  @keyframes pop{
+    0%{opacity:0;transform:scale(.9) translateY(10px)}
+    100%{opacity:1;transform:scale(1) translateY(0)}
+  }
+
+  /* ============ FOOTER ============ */
+  footer{
+    position:relative;z-index:1;
+    border-top:1px solid var(--line);
+    padding:44px clamp(16px,4vw,40px);
+    text-align:center;
+    color:var(--mut);
+    font-size:.82rem;
+  }
+  footer strong{
+    display:block;
+    font-family:'Anton',Impact,sans-serif;
+    font-weight:400;
+    font-size:1.5rem;letter-spacing:.2em;
+    color:var(--txt);text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  footer strong span{color:var(--red)}
+  footer .note{margin-top:14px;font-size:.74rem;color:#57576a}
+
+  /* ============ REVEAL ============ */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ============ GAME LAUNCHER ============ */
+  .game-launcher{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    z-index:80;
+    display:flex;align-items:center;gap:10px;
+    padding:13px 20px 13px 15px;
+    border-radius:999px;
+    border:1px solid rgba(255,43,61,.55);
+    background:linear-gradient(135deg, rgba(255,43,61,.95), rgba(255,107,74,.92));
+    color:#fff;
+    font-family:inherit;
+    font-size:.78rem;font-weight:800;
+    letter-spacing:.12em;text-transform:uppercase;
+    cursor:pointer;
+    box-shadow:0 14px 40px -10px rgba(255,43,61,.85);
+    transition:transform .25s, box-shadow .25s;
+    animation:launcherPulse 3s ease-in-out infinite;
+  }
+  .game-launcher:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 18px 48px -8px rgba(255,43,61,1)}
+  .game-launcher__icon{
+    display:grid;place-items:center;
+    width:26px;height:26px;border-radius:50%;
+    background:rgba(10,10,14,.35);
+    font-size:.9rem;
+  }
+  @keyframes launcherPulse{
+    0%,100%{box-shadow:0 14px 40px -10px rgba(255,43,61,.85)}
+    50%{box-shadow:0 14px 40px -4px rgba(255,43,61,1)}
+  }
+  @media(max-width:520px){
+    .game-launcher span.label{display:none}
+    .game-launcher{padding:14px;border-radius:50%}
+  }
+
+  /* ============ MODAL ============ */
+  .modal{
+    position:fixed;inset:0;z-index:100;
+    display:flex;align-items:center;justify-content:center;
+    padding:20px;
+    background:rgba(4,4,7,.78);
+    backdrop-filter:blur(8px);
+    opacity:0;visibility:hidden;
+    transition:opacity .3s ease, visibility .3s;
+  }
+  .modal.open{opacity:1;visibility:visible}
+
+  .modal__box{
+    width:100%;max-width:640px;
+    max-height:90vh;overflow-y:auto;
+    border:1px solid var(--line);
+    border-radius:22px;
+    background:linear-gradient(165deg,#13131b, #0b0b10);
+    box-shadow:0 40px 100px -30px rgba(0,0,0,.9), 0 0 60px -20px rgba(255,43,61,.35);
+    padding:28px clamp(20px,4vw,34px) 32px;
+    transform:translateY(24px) scale(.97);
+    transition:transform .35s cubic-bezier(.2,.8,.3,1.1);
+  }
+  .modal.open .modal__box{transform:none}
+
+  .modal__head{
+    display:flex;align-items:flex-start;justify-content:space-between;
+    gap:16px;margin-bottom:22px;
+  }
+  .modal__title{
+    font-family:'Anton',Impact,sans-serif;
+    font-weight:400;
+    font-size:1.45rem;line-height:1.1;
+    text-transform:uppercase;letter-spacing:.02em;
+  }
+  .modal__title em{color:var(--red);font-style:normal}
+  .modal__sub{
+    font-size:.8rem;color:var(--mut);margin-top:6px;
+  }
+  .modal__close{
+    flex:0 0 auto;
+    width:38px;height:38px;border-radius:50%;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.03);
+    color:var(--txt);font-size:1.1rem;
+    cursor:pointer;transition:.2s;
+    display:grid;place-items:center;
+    line-height:1;
+  }
+  .modal__close:hover{border-color:var(--red);color:var(--red);transform:rotate(90deg)}
+
+  .gstats{
+    display:flex;gap:10px;margin-bottom:20px;
+  }
+  .gstat{
+    flex:1;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:rgba(255,255,255,.03);
+    padding:12px 16px;
+  }
+  .gstat span{
+    display:block;
+    font-size:.62rem;font-weight:800;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--mut);
+  }
+  .gstat b{
+    font-family:'Anton',Impact,sans-serif;
+    font-weight:400;font-size:1.7rem;line-height:1.2;
+    transition:color .2s;
+  }
+  .gstat b.bump{color:var(--red)}
+
+  .gquiz{display:none}
+  .gquiz.show{display:block;animation:gqIn .35s ease}
+  @keyframes gqIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+  .gquiz__q{
+    font-size:1.02rem;font-weight:600;line-height:1.5;
+    margin-bottom:18px;
+    border-left:3px solid var(--red);
+    padding-left:14px;
+  }
+  .gquiz__q em{font-style:normal;color:var(--red)}
+  .gquiz__label{
+    display:block;
+    color:var(--mut);font-weight:800;
+    font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+    margin-bottom:8px;
+  }
+
+  .gquiz__opts{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:9px;
+  }
+  @media(max-width:480px){.gquiz__opts{grid-template-columns:1fr}}
+  .gopt{
+    font-family:inherit;
+    font-size:.84rem;font-weight:700;letter-spacing:.02em;
+    padding:13px 14px;border-radius:12px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.03);
+    color:var(--txt);cursor:pointer;
+    transition:.2s;text-align:left;
+  }
+  .gopt:hover:not(:disabled){border-color:rgba(255,43,61,.6);background:rgba(255,43,61,.1);transform:translateY(-1px)}
+  .gopt:disabled{cursor:default;opacity:.6}
+  .gopt.right{
+    border-color:#3ddc97;background:rgba(61,220,151,.16);
+    color:#3ddc97;opacity:1;box-shadow:0 0 20px -6px #3ddc97;
+  }
+  .gopt.wrong{
+    border-color:var(--red);background:rgba(255,43,61,.16);
+    color:var(--red);opacity:1;
+  }
+
+  .gquiz__foot{
+    margin-top:18px;display:flex;align-items:center;gap:14px;
+    font-size:.74rem;color:var(--mut);
+  }
+  .gquiz__progress{
+    flex:1;height:5px;border-radius:99px;background:var(--line);
+    overflow:hidden;
+  }
+  .gquiz__progress i{
+    display:block;height:100%;width:0%;
+    background:linear-gradient(90deg,var(--red),var(--red-soft));
+    transition:width .4s ease;
+  }
+
+  .gmsg{
+    font-size:.84rem;color:var(--mut);
+    min-height:1.4em;margin-top:16px;
+    transition:color .2s;
+  }
+  .gmsg.win{color:#3ddc97;font-weight:700}
+  .gmsg.bad{color:var(--red-soft);font-weight:700}
+
+  .gactions{
+    display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;
+  }
+  .gbtn{
+    font-family:inherit;
+    font-size:.76rem;font-weight:800;
+    letter-spacing:.14em;text-transform:uppercase;
+    padding:13px 26px;border-radius:999px;
+    border:1px solid var(--red);
+    background:var(--red);color:#fff;
+    cursor:pointer;transition:.25s;
+  }
+  .gbtn:hover{transform:translateY(-2px);box-shadow:0 12px 30px -10px var(--red)}
+  .gbtn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+  .gbtn--ghost{background:transparent;color:var(--txt);border-color:var(--line)}
+  .gbtn--ghost:hover{border-color:var(--red);color:var(--red);box-shadow:none}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__logo">STRAY <span>KIDS</span></div>
+  <div class="nav__links">
+    <a href="#about">О группе</a>
+    <a href="#members">Участники</a>
+    <a href="#disc">Дискография</a>
+    <a href="#fanzone">Фан-зона</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="orb orb--1"></div>
+  <div class="orb orb--2"></div>
+  <div class="orb orb--3"></div>
+  <div class="hero__inner">
+    <div class="hero__badge">✦ Debut 25.03.2018 · JYP Entertainment</div>
+    <h1>
+      <span class="l1">STRAY</span>
+      <span class="l2">KIDS</span>
+    </h1>
+    <p class="sub">«Заблудшие дети» — 8 участников, которые сами пишут музыку, сами ставят хореографию и сами выбирают свой путь. Добро пожаловать в мир STAY.</p>
+    <div class="hero__cta">
+      <a href="#members" class="btn btn--primary">Участники</a>
+      <a href="#fanzone" class="btn btn--ghost">Фан-зона</a>
+    </div>
+  </div>
+</header>
+
+<div class="marquee">
+  <div class="marquee__track">
+    <span>GOD'S MENU</span><span>✦</span><span>THUNDEROUS</span><span>✦</span><span>MANIAC</span><span>✦</span>
+    <span>S-CLASS</span><span>✦</span><span>LALALALA</span><span>✦</span><span>CHK CHK BOOM</span><span>✦</span>
+    <span>GOD'S MENU</span><span>✦</span><span>THUNDEROUS</span><span>✦</span><span>MANIAC</span><span>✦</span>
+    <span>S-CLASS</span><span>✦</span><span>LALALALA</span><span>✦</span><span>CHK CHK BOOM</span><span>✦</span>
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">01 — О группе</span>
+      <h2>Кто такие Stray Kids</h2>
+      <p>Stray Kids — южнокорейская бойз-группа, сформированная JYP Entertainment. Название придумал лидер Бан Чан: «заблудшие дети», которые вместе ищут свой путь, а не идут по чужому. Коллектив известен тем, что практически всю музыку пишет сам — через внутренний продюсерский юнит 3RACHA.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat reveal"><b>8</b><span>Участников</span></div>
+      <div class="stat reveal"><b>2018</b><span>Год дебюта</span></div>
+      <div class="stat reveal"><b>STAY</b><span>Название фандома</span></div>
+      <div class="stat reveal"><b>3RACHA</b><span>Продюсер-юнит</span></div>
+      <div class="stat reveal"><b>#1</b><span>Billboard 200</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MEMBERS ================= -->
+<section id="members">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">02 — Состав</span>
+      <h2>Восемь голосов</h2>
+      <p>Каждый — отдельный характер и отдельный цвет. Вместе — Stray Kids.</p>
+    </div>
+    <div class="members" id="membersGrid"></div>
+  </div>
+</section>
+
+<!-- ================= DISCOGRAPHY ================= -->
+<section id="disc">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">03 — Дискография</span>
+      <h2>Ключевые релизы</h2>
+      <p>От дебютного «I am NOT» до «ATE» — пролистай в сторону, чтобы увидеть всю линию.</p>
+    </div>
+    <div class="disc" id="discRow"></div>
+  </div>
+</section>
+
+<!-- ================= FAN ZONE ================= -->
+<section id="fanzone">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">04 — Фан-зона</span>
+      <h2>Для тех, кто STAY</h2>
+      <p>Немного интерактива: узнай случайный факт о группе или доверься судьбе и узнай свой биас.</p>
+    </div>
+
+    <div class="fanzone">
+      <div class="card reveal">
+        <h3>Случайный факт</h3>
+        <p>Нажми и получи один факт о Stray Kids.</p>
+        <div class="card__out" id="factOut">
+          <span class="placeholder">Здесь появится факт…</span>
+        </div>
+        <button class="btn btn--primary" id="factBtn">Удиви меня</button>
+      </div>
+
+      <div class="card reveal">
+        <h3>Твой биас</h3>
+        <p>Не можешь выбрать любимчика? Пусть решает случай.</p>
+        <div class="card__out" id="biasOut">
+          <span class="placeholder">Нажми кнопку — и узнаешь…</span>
+        </div>
+        <button class="btn btn--ghost" id="biasBtn">Выбрать биас</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>STRAY <span>KIDS</span></strong>
+  <p>Это неофициальный фан-сайт, созданный поклонниками для поклонников.</p>
+  <p class="note">Не связан с JYP Entertainment. Все права на музыку, названия и образы принадлежат их правообладателям.</p>
+</footer>
+
+<!-- ============ GAME LAUNCHER ============ -->
+<button class="game-launcher" id="gameLauncher" aria-label="Открыть мини-игру">
+  <span class="game-launcher__icon">★</span>
+  <span class="label">Мини-игра</span>
+</button>
+
+<!-- ============ GAME MODAL ============ -->
+<div class="modal" id="gameModal" role="dialog" aria-modal="true" aria-labelledby="gameTitle">
+  <div class="modal__box">
+    <div class="modal__head">
+      <div>
+        <div class="modal__title" id="gameTitle">Кто из <em>Stray Kids</em>?</div>
+        <div class="modal__sub">Викторина на знание состава. 8 вопросов — проверь себя!</div>
+      </div>
+      <button class="modal__close" id="gameClose" aria-label="Закрыть игру">✕</button>
+    </div>
+
+    <div class="gstats">
+      <div class="gstat"><span>Счёт</span><b id="gScore">0</b></div>
+      <div class="gstat"><span>Серия</span><b id="gStreak">0</b></div>
+      <div class="gstat"><span>Вопрос</span><b id="gCounter">0 / 8</b></div>
+    </div>
+
+    <div class="gquiz" id="gQuiz">
+      <div class="gquiz__q" id="gQuestion"></div>
+      <div class="gquiz__opts" id="gOpts"></div>
+      <div class="gquiz__foot">
+        <div class="gquiz__progress"><i id="gBar"></i></div>
+      </div>
+    </div>
+
+    <div class="gmsg" id="gMsg">Нажми «Начать игру» — и проверь, насколько хорошо ты знаешь участников.</div>
+
+    <div class="gactions">
+      <button class="gbtn" id="gStart">Начать игру</button>
+      <button class="gbtn gbtn--ghost" id="gReset" hidden>Сброс</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================= DATA ================= */
+const members = [
+  { name:"Bang Chan", kr:"방찬",   role:"Лидер · Продюсер · Вокалист", year:"1997", color:"#ff2b3d", initial:"방" },
+  { name:"Lee Know",  kr:"리노",   role:"Танцор · Вокалист",            year:"1998", color:"#7b5cff", initial:"리" },
+  { name:"Changbin",  kr:"창빈",   role:"Рэпер · Продюсер",             year:"1999", color:"#ff8a3d", initial:"창" },
+  { name:"Hyunjin",   kr:"현진",   role:"Танцор · Рэпер",               year:"2000", color:"#ffd23d", initial:"현" },
+  { name:"Han",       kr:"한",     role:"Рэпер · Продюсер",             year:"2000", color:"#3ddc97", initial:"한" },
+  { name:"Felix",     kr:"필릭스", role:"Танцор · Рэпер",               year:"2000", color:"#3da9ff", initial:"필" },
+  { name:"Seungmin",  kr:"승민",   role:"Вокалист",                     year:"2000", color:"#d76bff", initial:"승" },
+  { name:"I.N",       kr:"아이엔", role:"Вокалист · Макнэ",             year:"2001", color:"#ff6ba8", initial:"아" }
+];
+
+const albums = [
+  { year:"2018", title:"I am NOT",        desc:"Дебютный мини-альбом группы.",              track:"District 9" },
+  { year:"2019", title:"Clé 1: MIROH",    desc:"Первый шаг к более смелому звучанию.",       track:"MIROH" },
+  { year:"2020", title:"GO生 (GO LIVE)",  desc:"Поворотный релиз с фирменным «мала-вкусом».", track:"God's Menu" },
+  { year:"2021", title:"NOEASY",          desc:"Первый альбом-«миллионник» группы.",         track:"Thunderous" },
+  { year:"2022", title:"ODDINARY",        desc:"Мрачный и театральный концепт.",             track:"MANIAC" },
+  { year:"2023", title:"5-STAR",          desc:"Альбом, возглавивший Billboard 200.",        track:"S-Class" },
+  { year:"2023", title:"ROCK-STAR",       desc:"Рок-энергия и дерзкий саунд.",               track:"LALALALA" },
+  { year:"2024", title:"ATE",             desc:"Новый виток — уверенный и громкий.",         track:"Chk Chk Boom" }
+];
+
+const facts = [
+  "Название Stray Kids придумал лидер группы Бан Чан — оно означает «заблудшие дети», ищущие собственный путь.",
+  "Бан Чан, Чанбин и Хан входят в продюсерский юнит 3RACHA и пишут большинство песен группы.",
+  "Группа дебютировала 25 марта 2018 года под лейблом JYP Entertainment.",
+  "Фандом Stray Kids называется STAY — «оставайтесь».",
+  "Феликс вырос в Австралии и знаменит своим невероятно низким голосом.",
+  "I.N — самый младший участник (макнэ) группы.",
+  "Ли Ноу до дебюта был профессиональным танцором и участвовал в танцевальном шоу.",
+  "Хёнджин, Феликс и Ли Ноу составляют сильнейшую танцевальную линию группы.",
+  "Сынмин — главный вокалист и известен своей любовью к собакам.",
+  "Сингл «God's Menu» стал визитной карточкой группы и определил её фирменное звучание.",
+  "Все корейские альбомы группы дебютировали на первом месте чарта Billboard 200.",
+  "До официального дебюта участники прошли через собственное реалити-шоу «Stray Kids» в 2017 году."
+];
+
+/* ================= QUIZ DATA ================= */
+const quiz = [
+  { q:"Кто придумал название группы <em>Stray Kids</em>?", a:"Bang Chan" },
+  { q:"Кто входит в продюсерский юнит <em>3RACHA</em> вместе с Бан Чаном и Ханом?", a:"Changbin" },
+  { q:"Кто из участников вырос в Австралии и известен очень низким голосом?", a:"Felix" },
+  { q:"Кто является <em>макнэ</em> (самым младшим) в группе?", a:"I.N" },
+  { q:"Кто был профессиональным танцором до дебюта в Stray Kids?", a:"Lee Know" },
+  { q:"Кто из участников — главный вокалист и любит собак?", a:"Seungmin" },
+  { q:"Кто вместе с Феликсом и Ли Ноу составляет сильнейшую танцевальную линию?", a:"Hyunjin" },
+  { q:"Кто из участников родился в 2000 году и пишет рэп в составе 3RACHA?", a:"Han" }
+];
+
+/* ================= RENDER MEMBERS ================= */
+document.getElementById('membersGrid').innerHTML = members.map(m => `
+  <article class="member reveal" style="--c:${m.color}">
+    <div class="member__ava">${m.initial}</div>
+    <h3>${m.name}</h3>
+    <p class="member__kr">${m.kr}</p>
+    <p class="member__role">${m.role}</p>
+    <div class="member__meta">
+      <span>Родился</span>
+      <em>${m.year}</em>
+    </div>
+  </article>
+`).join('');
+
+/* ================= RENDER DISCOGRAPHY ================= */
+document.getElementById('discRow').innerHTML = albums.map(a => `
+  <article class="album reveal">
+    <div class="album__year">${a.year}</div>
+    <h3>${a.title}</h3>
+    <p>${a.desc}</p>
+    <span class="album__track">▶ ${a.track}</span>
+  </article>
+`).join('');
+
+/* ================= REVEAL ON SCROLL ================= */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      e.target.style.transitionDelay = (i % 4) * 70 + 'ms';
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ================= RANDOM FACT ================= */
+const factOut = document.getElementById('factOut');
+let lastFact = -1;
+
+document.getElementById('factBtn').addEventListener('click', () => {
+  let i;
+  do { i = Math.floor(Math.random() * facts.length); }
+  while (i === lastFact && facts.length > 1);
+  lastFact = i;
+
+  factOut.innerHTML = `<span>${facts[i]}</span>`;
+  factOut.classList.remove('pop');
+  void factOut.offsetWidth;
+  factOut.classList.add('pop');
+});
+
+/* ================= BIAS PICKER ================= */
+const biasOut = document.getElementById('biasOut');
+let lastBias = -1;
+
+document.getElementById('biasBtn').addEventListener('click', () => {
+  let i;
+  do { i = Math.floor(Math.random() * members.length); }
+  while (i === lastBias && members.length > 1);
+  lastBias = i;
+
+  const m = members[i];
+  biasOut.innerHTML = `
+    <div class="bias" style="--c:${m.color}">
+      <div class="bias__ava">${m.initial}</div>
+      <div class="bias__txt">
+        <strong>${m.name}</strong>
+        <span>${m.role}</span>
+        <em>Твой биас найден ✦</em>
+      </div>
+    </div>`;
+  biasOut.classList.remove('pop');
+  void biasOut.offsetWidth;
+  biasOut.classList.add('pop');
+});
+
+/* ================= MODAL CONTROL ================= */
+const gameLauncher = document.getElementById('gameLauncher');
+const gameModal    = document.getElementById('gameModal');
+const gameClose    = document.getElementById('gameClose');
+
+function openModal(){
+  gameModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  gameClose.focus();
+}
+
+function closeModal(){
+  gameModal.classList.remove('open');
+  document.body.style.overflow = '';
+  gameLauncher.focus();
+}
+
+gameLauncher.addEventListener('click', openModal);
+gameClose.addEventListener('click', closeModal);
+gameModal.addEventListener('click', (e) => {
+  if (e.target === gameModal) closeModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && gameModal.classList.contains('open')) closeModal();
+});
+
+/* ================= QUIZ MINI-GAME ================= */
+const gQuiz     = document.getElementById('gQuiz');
+const gQuestion = document.getElementById('gQuestion');
+const gOpts     = document.getElementById('gOpts');
+const gBar      = document.getElementById('gBar');
+const gCounter  = document.getElementById('gCounter');
+const gScoreEl  = document.getElementById('gScore');
+const gStreakEl = document.getElementById('gStreak');
+const gMsg      = document.getElementById('gMsg');
+const gStart    = document.getElementById('gStart');
+const gReset    = document.getElementById('gReset');
+
+let order = [];
+let idx = 0;
+let score = 0;
+let streak = 0;
+let locked = false;
+let playing = false;
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function bump(el){
+  el.classList.remove('bump');
+  void el.offsetWidth;
+  el.classList.add('bump');
+}
+
+function startGame(){
+  playing = true;
+  idx = 0;
+  score = 0;
+  streak = 0;
+  locked = false;
+  order = shuffle(quiz);
+
+  gScoreEl.textContent = '0';
+  gStreakEl.textContent = '0';
+  gStart.disabled = true;
+  gStart.textContent = 'Играем…';
+  gReset.hidden = false;
+  gMsg.className = 'gmsg';
+  gMsg.textContent = 'Выбирай правильный ответ — очки за верные, серия растёт подряд.';
+
+  gQuiz.classList.add('show');
+  renderQuestion();
+}
+
+function renderQuestion(){
+  const cur = order[idx];
+  gQuestion.innerHTML = `<span class="gquiz__label">Вопрос ${idx + 1} из ${order.length}</span>${cur.q}`;
+
+  const opts = shuffle(members.map(m => m.name));
+  gOpts.innerHTML = '';
+
+  opts.forEach(name => {
+    const b = document.createElement('button');
+    b.className = 'gopt';
+    b.type = 'button';
+    b.textContent = name;
+    b.addEventListener('click', () => answer(b, name, cur.a));
+    gOpts.appendChild(b);
+  });
+
+  gBar.style.width = (idx / order.length * 100) + '%';
+  gCounter.textContent = `${idx} / ${order.length}`;
+  locked = false;
+}
+
+function answer(btn, chosen, correct){
+  if (locked || !playing) return;
+  locked = true;
+
+  const buttons = gOpts.querySelectorAll('.gopt');
+  buttons.forEach(b => { b.disabled = true; });
+
+  const ok = chosen === correct;
+
+  if (ok){
+    btn.classList.add('right');
+    score += 10 + streak * 2;
+    streak++;
+    gScoreEl.textContent = score;
+    gStreakEl.textContent = streak;
+    bump(gScoreEl);
+    if (streak >= 3) bump(gStreakEl);
+    gMsg.className = 'gmsg win';
+    gMsg.textContent = streak >= 3
+      ? `Верно! Серия ${streak} — бонус растёт ✦`
+      : 'Верно! Так держать.';
+  } else {
+    btn.classList.add('wrong');
+    buttons.forEach(b => { if (b.textContent === correct) b.classList.add('right'); });
+    streak = 0;
+    gStreakEl.textContent = '0';
+    gMsg.className = 'gmsg bad';
+    gMsg.textContent = `Мимо. Правильный ответ — ${correct}.`;
+  }
+
+  gBar.style.width = ((idx + 1) / order.length * 100) + '%';
+  gCounter.textContent = `${idx + 1} / ${order.length}`;
+
+  setTimeout(() => {
+    idx++;
+    if (idx >= order.length) finishGame();
+    else renderQuestion();
+  }, 1000);
+}
+
+function finishGame(){
+  playing = false;
+  gQuiz.classList.remove('show');
+  gStart.disabled = false;
+  gStart.textContent = 'Ещё раз';
+  gMsg.className = 'gmsg win';
+  const perfect = score >= 100;
+  gMsg.textContent = perfect
+    ? `Идеально! ${score} очков — ты настоящий STAY ✦`
+    : `Готово! ${score} очков. Попробуешь побить рекорд?`;
+  gCounter.textContent = `${order.length} / ${order.length}`;
+  gBar.style.width = '100%';
+}
+
+function resetGame(){
+  playing = false;
+  idx = 0;
+  score = 0;
+  streak = 0;
+  locked = false;
+  order = [];
+  gQuiz.classList.remove('show');
+  gScoreEl.textContent = '0';
+  gStreakEl.textContent = '0';
+  gBar.style.width = '0%';
+  gCounter.textContent = '0 / 8';
+  gStart.disabled = false;
+  gStart.textContent = 'Начать игру';
+  gReset.hidden = true;
+  gMsg.className = 'gmsg';
+  gMsg.textContent = 'Нажми «Начать игру» — и проверь, насколько хорошо ты знаешь участников.';
+}
+
+gStart.addEventListener('click', startGame);
+gReset.addEventListener('click', resetGame);
+</script>
+</body>
+</html>
